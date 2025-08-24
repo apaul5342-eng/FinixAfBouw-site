@@ -6,16 +6,11 @@
   <title>Finix Af Bouw – Rigips & Afbouw premium</title>
   <meta name="description" content="Rigips, tavane tip sistem, izolații, stuc & vopsitorie. Friesland & Nordul Țărilor de Jos. Tel: +31 6 2703 2931">
   <style>
-    :root{
-      --bg:#0b0b0b; --bg2:#121212; --gold:#d4af37; --text:#f5f5f5; --muted:#bfbfbf;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
-    }
+    :root{--bg:#0b0b0b;--bg2:#121212;--gold:#d4af37;--text:#f5f5f5;--muted:#bfbfbf;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35)}
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
-    a{color:var(--gold);text-decoration:none}
-    a:hover{text-decoration:underline}
+    a{color:var(--gold);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:1120px;margin:auto;padding:0 18px}
-
     .topbar{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);border-bottom:1px solid rgba(212,175,55,.25)}
     .topbar .inner{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:12px 0}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em}
@@ -28,8 +23,9 @@
 
     .hero{position:relative;min-height:72vh;display:grid;place-items:center;text-align:center;
       background:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat fixed}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.88))}
-    .hero > .wrap{position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.82))}
+    .hero > .wrap{position:relative; z-index:1} /* <- FIX: adăugăm z-index ca să fie peste overlay */
+
     .hero h1{margin:0 0 10px;font-size:clamp(30px,6vw,52px);line-height:1.1}
     .hero p{margin:0 0 18px;color:#f1e6c3}
     .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -57,4 +53,31 @@
     .form input:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
 
     .footer{border-top:1px solid rgba(212,175,55,.25);background:#0a0a0a}
-    .footer
+    .footer .wrap{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:16px 18px;flex-wrap:wrap}
+
+    @media (max-width:720px){ .nav{display:none} .contact{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap inner">
+      <div class="brand">
+        <div class="logo">F</div>
+        <span>FINIX AF BOUW</span>
+      </div>
+      <nav class="nav">
+        <a href="#home">Acasă</a>
+        <a href="#over">Despre</a>
+        <a href="#servicii">Servicii</a>
+        <a href="#proiecte">Proiecte</a>
+        <a href="#contact" class="btn btn--ghost">Ofertă rapidă</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="wrap">
+      <h1>Rigiditate & finisaje premium,<br>precizie și stil</h1>
+      <p>Gips-carton • Tavane tip sistem • Tencuială & vopsitorie • Renovare totală</p>
+      <div class="cta">
+        <a href
